@@ -15,7 +15,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 52px;
+    gap: 32px;
 }
 
 header {
@@ -51,22 +51,24 @@ button {
     flex-grow: 1;
     flex-direction: column;
     align-items: center;
-    padding: 48px;
+    padding: 32px;
     border: 3px solid #6e6e6e;
     border-radius: 5px;
-    gap: 32px;
     background-color: #ffffff;
     border-radius: 12px;
 }
 
 .search-container {
     display: flex;
+    margin-top: 16px;
 }
 
 .display {
     display: flex;
     flex-direction: column;
+    align-items: center;
     font-family: 'Courier New', Courier, monospace;
+    margin: 16px;
 }
 
 .base-stats-container {
@@ -81,4 +83,9 @@ button {
     color: #ffffff;
     padding: 12px;
     width: 20vw;
+}
+
+img {
+    width: 32vw;
+    height: auto;
 }

@@ -1,8 +1,15 @@
 const searchButton = document.querySelector('#search-button')
-searchButton.addEventListener('click', getId)
-let id = document.querySelector('#search-input').value
-
+const searchInput = document.querySelector('#search-input')
 const display = document.querySelector('.display');
+const baseStats = document.querySelector('.base-stats-container')
+
+searchButton.addEventListener('click', getId)
+searchInput.addEventListener('keypress', (event)=>{
+    if(event.key === 'Enter'){
+        event.preventDefault();
+        searchButton.click();
+    }
+})
 
 function getId(){
     let id = document.querySelector('#search-input').value
@@ -20,15 +27,29 @@ async function fetchData(id){
 }
 
 function displayPokemon(data){
-    const height = data.height/10
-    const name = data.name.toUpperCase()
-    display.innerHTML = 
-    `<p id="name-id">${name} #${data.id}</p>
-    <p id="weight">Weight: ${data.weight/10} kg</p>
-    <p id="height">Heigth: ${Number(height.toFixed(1))} m</p>
-    <p id="types">${data.types}</p>`;
-    // work on extracting types
-    // <img src="">
+    console.log(data)
+    const { id, sprites: { front_default }, types, stats} = data;
+    const [] = stats
+    const [{ type: type1 }, { type: type2 }] = types;
+    const name = data.name.toUpperCase(); 
+    const weight = data.weight/10
+    const height = Number((data.height/10).toFixed(1))
 
-    //base-stats update DOM stuff
+    display.innerHTML = 
+    `<p id="name-id">${name} #${id}</p>
+    <p id="weight">Weight: ${weight} kg</p>
+    <p id="height">Height: ${height} m</p>
+    <img src="${front_default}">
+    <p class="type">${type1.name.toUpperCase()}</p>
+    <p class="type">${type2.name.toUpperCase()}</p>`
+
+    baseStats.innerHTML =
+    `<div id="hp">HP: </div>
+    <div id="attack">Attack: </div>
+    <div id="defense">Dfense: </div>
+    <div id="special-attack">Sp. Atk: </div>
+    <div id="spcial-defense">Sp Def: </div>
+    <div id="speed">Speed: </div>`
+
+    //need to figure out hwo to deconstruct when some have one key and some have two
 }
