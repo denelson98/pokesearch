@@ -13,13 +13,13 @@ async function fetchData(id){
     try{
         const response = await fetch(`https://pokeapi-proxy.freecodecamp.rocks/api/pokemon/${id}`)
         const data = await response.json();
-        getPokemon(data)
+        displayPokemon(data)
     } catch(error){
         alert('Invalid Entry')
     }
 }
 
-function getPokemon(data){
+function displayPokemon(data){
     const height = data.height/10
     const name = data.name.toUpperCase()
     display.innerHTML = 
@@ -27,12 +27,8 @@ function getPokemon(data){
     <p id="weight">Weight: ${data.weight/10} kg</p>
     <p id="height">Heigth: ${Number(height.toFixed(1))} m</p>
     <p id="types">${data.types}</p>`;
-    //deconstruct JSON and retrieve pokemon info and pic
-    //displayPokemon()
-}
+    // work on extracting types
+    // <img src="">
 
-/*
-function displayPokemon(){
-    // DOM manipulation to display all given pokemon datat from API
+    //base-stats update DOM stuff
 }
-*/
