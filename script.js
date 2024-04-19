@@ -2,6 +2,8 @@ const searchButton = document.querySelector('#search-button')
 searchButton.addEventListener('click', getId)
 let id = document.querySelector('#search-input').value
 
+const display = document.querySelector('.display');
+
 function getId(){
     let id = document.querySelector('#search-input').value
     fetchData(id)
@@ -18,7 +20,14 @@ async function fetchData(id){
 }
 
 function getPokemon(data){
-    // deconstruct JSON and retrieve pokemon info and pic
+    const height = data.height/10
+    const name = data.name.toUpperCase()
+    display.innerHTML = 
+    `<p id="name-id">${name} #${data.id}</p>
+    <p id="weight">Weight: ${data.weight/10} kg</p>
+    <p id="height">Heigth: ${Number(height.toFixed(1))} m</p>
+    <p id="types">${data.types}</p>`;
+    //deconstruct JSON and retrieve pokemon info and pic
     //displayPokemon()
 }
 
