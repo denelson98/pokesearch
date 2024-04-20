@@ -129,6 +129,10 @@ img {
         zoom: 75%;
     }
     
+    select, textarea, input {
+        font-size: 16px;
+    }
+
     input {
         width: 30vw;
     }
