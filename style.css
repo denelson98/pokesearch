@@ -123,3 +123,15 @@ img {
     width: 100px;
     border-radius: 12px;
 }
+
+@media screen and (max-width: 600px) {
+    #master-container{
+        height: 70vh;
+    }
+    input {
+        width: 30vw;
+    }
+    button {
+        width: 15vw;
+    }
+  }
