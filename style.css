@@ -128,4 +128,12 @@ img {
     body{
         zoom: 75%;
     }
+    
+    input {
+        width: 30vw;
+    }
+
+    button {
+        width: 15vw;
+    }
   }
