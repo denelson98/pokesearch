@@ -125,13 +125,7 @@ img {
 }
 
 @media screen and (max-width: 600px) {
-    #master-container{
-        height: 70vh;
-    }
-    input {
-        width: 30vw;
-    }
-    button {
-        width: 15vw;
+    body{
+        zoom: 70%;
     }
   }
