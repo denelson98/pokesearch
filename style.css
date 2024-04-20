@@ -4,14 +4,14 @@
 }
 
 :root {
-    --header-size: 2em;
+    --header-size: 3em;
     --header-weight: bold;
 }
 
 body {
-    height: 80vh;
+    height: 100vh;
     padding: 32px;
-    background-color: #6e6e6e;
+    background-image: linear-gradient(#d60e0e, #ffffff);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,10 +48,9 @@ button {
 
 #master-container {
     display: flex;
-    flex-grow: 1;
     flex-direction: column;
     align-items: center;
-    padding: 48px;
+    padding: 32px;
     border: 3px solid #6e6e6e;
     border-radius: 5px;
     background-color: #ffffff;
@@ -71,6 +70,13 @@ button {
     margin: 16px;
 }
 
+#name-id {
+    font-size: 1.5em;
+}
+#weight, #height {
+    font-size: 1.1em;
+}
+
 .base-stats-container {
     display: grid;
     grid-template-columns: 50% 50%;
@@ -86,15 +92,22 @@ button {
 }
 
 .base-column > *, .stat-column > * {
+    font-size: larger;
     background-color: #2d4be0;
     color: #ffffff;
     padding: 12px;
-    width: 12vw;
+    width: 15vw;
+}
+
+.placeholder{
+    width: 252px;
+    height: 254px;
 }
 
 img {
-    width: 23vw;
+    width: 20vw;
     height: auto;
+    margin: 8px 0px 8px 0px;
 }
 
 .types {

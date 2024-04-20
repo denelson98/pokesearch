@@ -2,6 +2,13 @@ const searchButton = document.querySelector('#search-button')
 const searchInput = document.querySelector('#search-input')
 const display = document.querySelector('.display');
 const baseStats = document.querySelector('.stat-column')
+const hpDisplay = document.querySelector('#hp')
+const attackDisplay = document.querySelector('#attack')
+const defenseDisplay = document.querySelector('#defense')
+const specailAttackDisplay = document.querySelector('#special-attack')
+const specialDefenseDisplay = document.querySelector('#special-defense')
+const speedDisplay = document.querySelector('#speed')
+
 
 searchButton.addEventListener('click', getId)
 searchInput.addEventListener('keypress', (event)=>{
@@ -27,7 +34,6 @@ async function fetchData(id){
 }
 
 function displayPokemon(data){
-    console.log(data)
     const {
         name, 
         id, 
@@ -37,7 +43,14 @@ function displayPokemon(data){
         types, 
         stats
     } = data;
-    const [{ base_stat: hp }] = stats
+    const [
+        { base_stat: hp },
+        { base_stat: attack },
+        { base_stat: defense },
+        { base_stat: specailAttack },
+        { base_stat: specialDefense },
+        { base_stat: speed },  
+    ] = stats
     const pokeName = name.toUpperCase(); 
     const pokeWeight = weight/10
     const pokeHeight = Number((height/10).toFixed(1))
@@ -48,7 +61,7 @@ function displayPokemon(data){
         `<p id="name-id">${pokeName} #${id}</p>
         <p id="weight">Weight: ${pokeWeight} kg</p>
         <p id="height">Height: ${pokeHeight} m</p>
-        <img src="${pic}">
+        <img src="${pic}" alt="pokemon-icon">
         <div class="types">
             <div>${type1.toUpperCase()}</div>
             <div>${type2.toUpperCase()}</div>
@@ -65,12 +78,11 @@ function displayPokemon(data){
         </div>`
     }
 
-    baseStats.innerHTML = `
-    <div id="hp">${hp}</div>
-    <div id="attack">Attack: </div>
-    <div id="defense">Dfense: </div>
-    <div id="special-attack">Sp. Atk: </div>
-    <div id="spcial-defense">Sp Def: </div>
-    <div id="speed">Speed: </div>`
-    
+    hpDisplay.textContent = hp;
+    attackDisplay.textContent = attack;
+    defenseDisplay.textContent = defense;
+    specailAttackDisplay.textContent = specailAttack;
+    specialDefenseDisplay.textContent = specialDefense;
+    speedDisplay.textContent = speed;
 }
+
