@@ -28,20 +28,49 @@ async function fetchData(id){
 
 function displayPokemon(data){
     console.log(data)
-    const { id, sprites: { front_default }, types} = data;
-    const [{type: type1}, {type: type2}] = types;
-    const name = data.name.toUpperCase(); 
-    const weight = data.weight/10
-    const height = Number((data.height/10).toFixed(1))
+    const {
+        name, 
+        id, 
+        weight, 
+        height, 
+        sprites: { front_default: pic }, 
+        types, 
+        stats
+    } = data;
+    const [{ base_stat: hp }] = stats
+    const pokeName = name.toUpperCase(); 
+    const pokeWeight = weight/10
+    const pokeHeight = Number((height/10).toFixed(1))
 
-    display.innerHTML = 
-    `<p id="name-id">${name} #${id}</p>
-    <p id="weight">Weight: ${weight} kg</p>
-    <p id="height">Height: ${height} m</p>
-    <img src="${front_default}">
-    <div class="types">
-        <div>${type1.name.toUpperCase()}</div>
-        <div>${type2.name.toUpperCase()}</div>
-    </div>`
+    if(types.length === 2){
+        const [{type: {name: type1}}, {type: { name: type2}}] = types;
+        display.innerHTML = 
+        `<p id="name-id">${pokeName} #${id}</p>
+        <p id="weight">Weight: ${pokeWeight} kg</p>
+        <p id="height">Height: ${pokeHeight} m</p>
+        <img src="${pic}">
+        <div class="types">
+            <div>${type1.toUpperCase()}</div>
+            <div>${type2.toUpperCase()}</div>
+        </div>`
+    } else {
+        const [{type: {name: type1}}] = types;
+        display.innerHTML = 
+        `<p id="name-id">${pokeName} #${id}</p>
+        <p id="weight">Weight: ${pokeWeight} kg</p>
+        <p id="height">Height: ${pokeHeight} m</p>
+        <img src="${pic}">
+        <div class="types">
+            <div>${type1.toUpperCase()}</div>
+        </div>`
+    }
+
+    baseStats.innerHTML = `
+    <div id="hp">HP: ${hp}</div>
+    <div id="attack">Attack: </div>
+    <div id="defense">Dfense: </div>
+    <div id="special-attack">Sp. Atk: </div>
+    <div id="spcial-defense">Sp Def: </div>
+    <div id="speed">Speed: </div>`
     
 }
