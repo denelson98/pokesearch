@@ -28,9 +28,8 @@ async function fetchData(id){
 
 function displayPokemon(data){
     console.log(data)
-    const { id, sprites: { front_default }, types, stats} = data;
-    const [] = stats
-    const [{ type: type1 }, { type: type2 }] = types;
+    const { id, sprites: { front_default }, types} = data;
+    const [{type: type1}, {type: type2}] = types;
     const name = data.name.toUpperCase(); 
     const weight = data.weight/10
     const height = Number((data.height/10).toFixed(1))
@@ -40,16 +39,9 @@ function displayPokemon(data){
     <p id="weight">Weight: ${weight} kg</p>
     <p id="height">Height: ${height} m</p>
     <img src="${front_default}">
-    <p class="type">${type1.name.toUpperCase()}</p>
-    <p class="type">${type2.name.toUpperCase()}</p>`
-
-    baseStats.innerHTML =
-    `<div id="hp">HP: </div>
-    <div id="attack">Attack: </div>
-    <div id="defense">Dfense: </div>
-    <div id="special-attack">Sp. Atk: </div>
-    <div id="spcial-defense">Sp Def: </div>
-    <div id="speed">Speed: </div>`
-
-    //need to figure out hwo to deconstruct when some have one key and some have two
+    <div class="types">
+        <div>${type1.name.toUpperCase()}</div>
+        <div>${type2.name.toUpperCase()}</div>
+    </div>`
+    
 }

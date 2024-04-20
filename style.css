@@ -10,7 +10,7 @@
 
 body {
     height: 80vh;
-    padding: 64px;
+    padding: 32px;
     background-color: #6e6e6e;
     display: flex;
     flex-direction: column;
@@ -51,7 +51,7 @@ button {
     flex-grow: 1;
     flex-direction: column;
     align-items: center;
-    padding: 32px;
+    padding: 48px;
     border: 3px solid #6e6e6e;
     border-radius: 5px;
     background-color: #ffffff;
@@ -82,10 +82,23 @@ button {
     background-color: #2d4be0;
     color: #ffffff;
     padding: 12px;
-    width: 20vw;
+    width: 18vw;
 }
 
 img {
-    width: 32vw;
+    width: 23vw;
     height: auto;
+}
+
+.types {
+    display: flex;
+    gap: 12px;
+}
+
+.types > * {
+    border: 2px solid black;
+    text-align: center;
+    padding: 8px;
+    width: 100px;
+    border-radius: 12px;
 }
