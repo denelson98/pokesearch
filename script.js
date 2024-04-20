@@ -1,7 +1,7 @@
 const searchButton = document.querySelector('#search-button')
 const searchInput = document.querySelector('#search-input')
 const display = document.querySelector('.display');
-const baseStats = document.querySelector('.base-stats-container')
+const baseStats = document.querySelector('.stat-column')
 
 searchButton.addEventListener('click', getId)
 searchInput.addEventListener('keypress', (event)=>{
@@ -66,7 +66,7 @@ function displayPokemon(data){
     }
 
     baseStats.innerHTML = `
-    <div id="hp">HP: ${hp}</div>
+    <div id="hp">${hp}</div>
     <div id="attack">Attack: </div>
     <div id="defense">Dfense: </div>
     <div id="special-attack">Sp. Atk: </div>

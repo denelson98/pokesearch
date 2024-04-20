@@ -72,17 +72,24 @@ button {
 }
 
 .base-stats-container {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-auto-flow: row;
     gap: 8px;
     font-family:'Courier New', Courier, monospace;
 }
 
-.base-stats-container > * {
+.base-column, .stat-column {
+    display: grid;
+    text-align: center;
+    gap: 8px;
+}
+
+.base-column > *, .stat-column > * {
     background-color: #2d4be0;
     color: #ffffff;
     padding: 12px;
-    width: 18vw;
+    width: 12vw;
 }
 
 img {
