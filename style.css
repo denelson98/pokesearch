@@ -126,6 +126,6 @@ img {
 
 @media screen and (max-width: 600px) {
     body{
-        zoom: 80%;
+        zoom: 75%;
     }
   }
